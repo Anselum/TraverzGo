@@ -222,5 +222,6 @@ volume_slider.onchange = () => {
 
 // List Scrolling to the specified position
 
-let active_city = document.querySelector('.li_active');
-active_city.scrollIntoView();
+if (window.innerHeight > window.innerWidth) {
+    alert("Please use Landscape mode for better experience");
+}

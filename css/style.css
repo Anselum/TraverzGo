@@ -9,6 +9,7 @@
 
 body {
     width: 100%;
+    max-width: 100vw;
     height: 100vh;
     overflow: hidden;
     position: relative;
@@ -16,6 +17,7 @@ body {
 }
 
 #player {
+    width: 100%;
     pointer-events: none;
     z-index: -1;
     overflow: hidden;
@@ -25,7 +27,7 @@ body {
     position: fixed;
     top: 2%;
     right: 2%;
-    z-index: 10;
+    z-index: 11;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -37,7 +39,7 @@ svg:hover {
 }
 
 aside {
-    width: max(300px,35%);
+    width: max(300px, 35%);
     height: 100%;
     position: absolute;
     top: 0;
@@ -47,6 +49,7 @@ aside {
     backdrop-filter: blur(25px);
     transition: width 0.25s;
     overflow-y: scroll;
+    z-index: 10;
 }
 
 aside h1 {
@@ -147,13 +150,76 @@ aside h1 {
 
 /* Responsive */
 
-@media screen and (max-height: 768px) {
-    aside{
+@media screen and (orientation: landscape) {
+    #player {
+        height: 100%;
+    }
+}
+
+@media screen and (max-height: 500px) {
+
+    svg,
+    #hamburger {
+        scale: 0.75;
+    }
+
+    aside h1 {
+        text-align: center;
+        margin: 5px 0 10px;
+        font-weight: 300;
+        font-size: 26px;
+    }
+
+    .location-cont {
+        width: 90%;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.389);
+        border: 1px solid gray;
+        border-radius: 10px;
+        padding: 15px 20px;
+    }
+
+    .location-cont h4 {
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+    .location-cont ul {
+        max-height: 35vh;
+    }
+
+
+    .location-cont ul li {
+        margin: 5px 0;
+        padding: 0.15% 2%;
+        font-size: 12px;
+    }
+
+    /* Controls */
+
+    .controls {
+        margin: 10px auto 0;
+        padding: 8px 10px;
         display: flex;
-        flex-direction: column;
+        flex-flow: row wrap;
         align-items: center;
+        justify-content: space-evenly;
     }
-    .location-cont ul{
-        height: 25vh;
+
+    .controls>svg {
+        width: 15px;
     }
+
+    .volume-cont {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    #volume_slider {
+        height: 4px;
+    }
+
 }
