@@ -22,7 +22,7 @@ const data = [
     },
     {
         city: "Los Angeles",
-        videos: ['YqcMq9tEw0g', 'ywNMGha7Cog']
+        videos: [ 'ywNMGha7Cog']
     },
     {
         city: "San Diego",
